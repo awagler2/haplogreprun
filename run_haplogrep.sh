@@ -13,7 +13,7 @@ cd ${WORKDIR} ;
 BASE="$(basename ${WRKFILE} .txt)" ;
 
 echo "Converting..."
-bcftools convert --tsv2vcf ${WORKDIR}/${BASE}.txt -f Homo_sapiens.GRCh37.dna.primary_assembly.fa -s ${BASE} -Ob -o ${BASE}.vcf.gz -O z
+bcftools convert --tsv2vcf ${WORKDIR}/${BASE}.txt -f ${PREFIX}/Homo_sapiens.GRCh37.dna.primary_assembly.fa -s ${BASE} -Ob -o ${BASE}.vcf.gz -O z
 
 cd ${PREFIX} ;
 java -jar haplogrep-2.1.24.jar --in ${WORKDIR}/${BASE}.vcf.gz --format vcf --out ${BASE}_haplogroups.txt --lineage > haplogrep.log 
